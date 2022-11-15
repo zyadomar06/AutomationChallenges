@@ -1,14 +1,16 @@
-package Challenge1Tests.tests;
+package Challenge1Tests.Tests;
 
+import TestBase.testBase;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import Challenge1Main.pages.loginPage;
-import Challenge1Tests.tests.utilities.cookiesHandler;
+import Challenge1Tests.utilities.cookiesHandler;
 
 import java.time.Duration;
 
-public class loginWithCookiesTest extends testBase{
+public class loginWithCookiesTest extends testBase {
 
    loginPage loginPage;
    cookiesHandler cookiesHandler;
@@ -17,6 +19,7 @@ public class loginWithCookiesTest extends testBase{
     @Test(priority = 1)
     public void loginTest ()
     {
+        final String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));

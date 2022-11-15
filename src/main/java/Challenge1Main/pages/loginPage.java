@@ -1,5 +1,6 @@
 package Challenge1Main.pages;
 
+import PageBase.pageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

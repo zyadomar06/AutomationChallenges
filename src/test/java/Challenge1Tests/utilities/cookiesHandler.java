@@ -1,17 +1,19 @@
-package Challenge1Tests.tests.utilities;
+package Challenge1Tests.utilities;
 
+import TestBase.testBase;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WindowType;
 
 import java.io.*;
 import java.util.Date;
 import java.util.StringTokenizer;
 
-import static Challenge1Tests.tests.testBase.driver;
+import static TestBase.testBase.driver;
 
 public class cookiesHandler {
 
     String projectPath = System.getProperty("user.dir");
-    String cookiesPath = "/src/main/java/data/Cookies";
+    String cookiesPath = "/src/main/java/Challenge1Main/data/Cookies";
 
     final  String URL = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
 
@@ -77,6 +79,7 @@ public class cookiesHandler {
         {
             e.printStackTrace();
         }
+        driver.switchTo().newWindow(WindowType.TAB);
         driver.navigate().to(URL);
     }
 }
