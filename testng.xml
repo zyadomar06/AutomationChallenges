@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test preserve-order="true" name="Cookies Login Test">
+        <classes>
+            <class name="tests.loginWithCookiesTest">
+                <methods>
+                    <include name="loginTest"/>
+                    <include name="cookiesLoginTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
