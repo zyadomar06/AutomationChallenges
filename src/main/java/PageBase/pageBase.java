@@ -2,6 +2,7 @@ package PageBase;
 
 import org.openqa.selenium.*;
 
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
@@ -11,6 +12,8 @@ public class pageBase
 {
     protected static WebDriver driver;
     protected static WebDriverWait wait;
+    protected static Actions actions;
+    protected static Alert alert;
 
     public pageBase(WebDriver driver)
     {
@@ -44,23 +47,10 @@ public class pageBase
         return driver.findElement(text).getText();
     }
 
-
-    //Switch to Frame By Index
-    protected void switchToFrameByIndex(int index)
-    {
-        driver.switchTo().frame(index);
-    }
-
     //Switch to Frame By ID or Name
     protected void switchToFrameByIDorName(String name)
     {
         driver.switchTo().frame(name);
-    }
-
-    //Switch to Frame By Web Element
-    protected void switchToFrameByWebElement(WebElement webElement)
-    {
-        driver.switchTo().frame(webElement);
     }
 
     //Switch To Default Frame
@@ -69,11 +59,31 @@ public class pageBase
         driver.switchTo().defaultContent();
     }
 
-    // Switch To Parent Frame
-    protected void switchToParentFrame()
+    //Switch to Frame By Index
+    protected void switchToFrameByIndex(int index)
     {
-        driver.switchTo().parentFrame();
+        driver.switchTo().frame(index);
     }
 
+    // Find Element on Web Page
+    protected static WebElement findElement(By elementBy)
+    {
+        WebElement element = driver.findElement(elementBy);
+        return element;
+    }
+
+    //Actions for User Interactions
+    protected static Actions takeAction ()
+    {
+        actions = new Actions(driver);
+        return actions;
+    }
+
+    protected static Alert switchToAlert()
+    {
+        alert = driver.switchTo().alert();
+        return alert;
+    }
 
 }
+

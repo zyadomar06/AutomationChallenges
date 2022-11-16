@@ -1,4 +1,4 @@
-package Challenge2Tests.Tests;
+package Challenge2Tests.tests;
 
 import Challenge2Main.pages.framesPage;
 import TestBase.testBase;
@@ -17,6 +17,8 @@ public class framesTest extends testBase {
         framesPage.chooseCourse();
 
         Assert.assertEquals(framesPage.getCourseChosen(),"JavaScript for beginners");
+
+        framesPage.returnFrame();
         System.out.println("Test Passed Successfully ");
     }
 }

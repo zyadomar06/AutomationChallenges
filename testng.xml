@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test preserve-order="true" name="Frames Test">
+<suite name="Suite Run">
+    <test preserve-order="true" name="Dclick Test 1">
+        <parameter name="URL" value="https://demo.guru99.com/test/simple_context_menu.html"></parameter>
         <classes>
-            <class name="Challenge2Tests.Tests.framesTest">
+            <class name="Challenge4Tests.tests.rClickTest">
                 <methods>
-                    <include name="frameChallengeTest"/>
+                    <include name="rightClickTest"/>
                 </methods>
             </class>
         </classes>

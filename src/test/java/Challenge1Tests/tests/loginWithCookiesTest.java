@@ -1,8 +1,7 @@
-package Challenge1Tests.Tests;
+package Challenge1Tests.tests;
 
 import TestBase.testBase;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import Challenge1Main.pages.loginPage;

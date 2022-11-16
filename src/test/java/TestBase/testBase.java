@@ -1,5 +1,6 @@
 package TestBase;
 
+import com.beust.jcommander.Parameter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.openqa.selenium.WebDriver;
@@ -14,10 +15,9 @@ import java.time.Duration;
 public class testBase
 {
     public static WebDriver driver;
-    final String URL = "https://courses.letskodeit.com/practice";
-
     @BeforeMethod
-    public void setupDriver()
+    @Parameters("URL")
+    public void setupDriver(String URL)
     {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();

@@ -29,4 +29,9 @@ public class framesPage extends pageBase {
     {
         return readText(courseChosen);
     }
+
+    public void returnFrame ()
+    {
+        switchToDefaultFrame();
+    }
 }
