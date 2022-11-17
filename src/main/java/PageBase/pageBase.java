@@ -28,10 +28,17 @@ public class pageBase
     }
 
     // Click on Element
-    protected static void clickOn (By btn)
+    protected static void clickOn (By btn , String chooseAction)
     {
         waitVisibility(btn);
-        driver.findElement(btn).click();
+        WebElement element = driver.findElement(btn);
+
+        switch (chooseAction)
+        {
+            case "click" :  element.click(); break;
+            case "hover" : takeAction().moveToElement(element).click().build().perform(); break;
+            default: System.out.println("Choose only from : {click , hover} "); break;
+        }
     }
 
     // Write Text
@@ -72,17 +79,33 @@ public class pageBase
         return element;
     }
 
-    //Actions for User Interactions
+    // Actions for User Interactions
     protected static Actions takeAction ()
     {
         actions = new Actions(driver);
         return actions;
     }
 
+    // Switch To Alert
     protected static Alert switchToAlert()
     {
         alert = driver.switchTo().alert();
         return alert;
+    }
+
+    // Select/Deselect By Index from List
+    protected void actionToListByIndex(By elementBy , int index , String action)
+    {
+        waitVisibility(elementBy);
+        WebElement dropDown = driver.findElement(elementBy);
+        Select obj = new Select(dropDown);
+
+        switch (action)
+        {
+            case "select" : obj.selectByIndex(index);break;
+            case "deselect" : obj.deselectByIndex(index);break;
+            default: System.out.println("please enter only one from the Options : {select , deselect}");break;
+        }
     }
 
 }

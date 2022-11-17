@@ -22,7 +22,7 @@ public class framesPage extends pageBase {
 
     public void chooseCourse ()
     {
-        clickOn(courseHref);
+        clickOn(courseHref, "click");
     }
 
     public String getCourseChosen ()

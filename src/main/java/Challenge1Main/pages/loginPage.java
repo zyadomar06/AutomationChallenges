@@ -25,6 +25,6 @@ public class loginPage extends pageBase
     {
          setTextElement(userName, "Admin");
          setTextElement(passWord, "admin123");
-         clickOn(loginBtn);
+         clickOn(loginBtn, "click");
     }
 }
