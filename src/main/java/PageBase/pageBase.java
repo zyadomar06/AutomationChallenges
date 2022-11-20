@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
 
 public class pageBase
 {
@@ -72,6 +74,11 @@ public class pageBase
         driver.switchTo().frame(index);
     }
 
+    protected void switchToFrameByWebElement(WebElement webElement)
+    {
+        driver.switchTo().frame(webElement);
+    }
+
     // Find Element on Web Page
     protected static WebElement findElement(By elementBy)
     {
@@ -105,6 +112,29 @@ public class pageBase
             case "select" : obj.selectByIndex(index);break;
             case "deselect" : obj.deselectByIndex(index);break;
             default: System.out.println("please enter only one from the Options : {select , deselect}");break;
+        }
+    }
+
+    // Upload File
+    protected void uploadFile (By elementBy , String filePath)
+    {
+        driver.findElement(elementBy).sendKeys(filePath);
+    }
+
+    // Window Handler
+    protected void handleWindow (String window)
+    {
+        Set<String> windowHandles = driver.getWindowHandles();
+        Iterator<String> itr = windowHandles.iterator();
+        String parentWindow = itr.next();
+        String childWindow = itr.next();
+
+        System.out.println("All open windows : \n" + windowHandles);
+        switch (window)
+        {
+            case "parent" : driver.switchTo().window(parentWindow); System.out.println("Parent window : " + parentWindow);break;
+            case "child" : driver.switchTo().window(childWindow); System.out.println("Child windows : " + childWindow);break;
+            default: System.out.println("Please select Only from : { parent , child } ");break;
         }
     }
 

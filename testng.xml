@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite Run">
-    <test preserve-order="true" name="Mouse Hover Test1" >
-        <parameter name="URL" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"></parameter>
+    <test preserve-order="true" name="New Tabs Test1" >
+        <parameter name="URL" value="https://courses.letskodeit.com/practice"></parameter>
         <classes>
-            <class name="Challenge6Tests.tests.mouseHoverTest">
+            <class name="Challenge10Tests.tests.newTabTest">
                 <methods>
-                    <include name="mouseHoverTest1"/>
+                    <include name="newTabTest1"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test preserve-order="true" name="Mouse Hover Test2" >
-        <parameter name="URL" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"></parameter>
+    <test preserve-order="true" name="New Tabs Test2" >
+        <parameter name="URL" value="https://courses.letskodeit.com/practice"></parameter>
         <classes>
-            <class name="Challenge6Tests.tests.mouseHoverTest">
+            <class name="Challenge10Tests.tests.newTabTest">
                 <methods>
-                    <include name="mouseHoverTest2"/>
+                    <include name="newTabTest2"/>
                 </methods>
             </class>
         </classes>
