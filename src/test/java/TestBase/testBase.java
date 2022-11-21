@@ -25,11 +25,11 @@ public class testBase
         driver.navigate().to(URL);
     }
 
-//    @AfterMethod
-//    public void teardownDriver()
-//    {
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void teardownDriver()
+    {
+        driver.quit();
+    }
 
 }
 
