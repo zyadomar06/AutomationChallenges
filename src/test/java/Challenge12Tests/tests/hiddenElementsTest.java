@@ -1,6 +1,5 @@
 package Challenge12Tests.tests;
 
-import Challenge11Main.pages.jsExecutor;
 import Challenge12Main.pages.hiddenElements;
 import TestBase.testBase;
 import org.testng.Assert;

@@ -100,21 +100,6 @@ public class pageBase
         return alert;
     }
 
-    // Select/Deselect By Index from List
-    protected void actionToListByIndex(By elementBy , int index , String action)
-    {
-        waitVisibility(elementBy);
-        WebElement dropDown = driver.findElement(elementBy);
-        Select obj = new Select(dropDown);
-
-        switch (action)
-        {
-            case "select" : obj.selectByIndex(index);break;
-            case "deselect" : obj.deselectByIndex(index);break;
-            default: System.out.println("please enter only one from the Options : {select , deselect}");break;
-        }
-    }
-
     // Upload File
     protected void uploadFile (By elementBy , String filePath)
     {
@@ -136,6 +121,21 @@ public class pageBase
             case "child" : driver.switchTo().window(childWindow); System.out.println("Child windows : " + childWindow);break;
             default: System.out.println("Please select Only from : { parent , child } ");break;
         }
+    }
+
+    // Generic JavaScript Executor
+    protected void jsExecutor (String script , By element)
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement element1 = findElement(element);
+        js.executeScript(script,element1);
+    }
+
+    // Generic JavaScript Executor
+    protected JavascriptExecutor jsExecutor ()
+    {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return js;
     }
 
 }

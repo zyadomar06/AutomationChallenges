@@ -1,6 +1,7 @@
 package TestBase;
 
 import com.beust.jcommander.Parameter;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.openqa.selenium.WebDriver;
@@ -12,13 +13,32 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
-public class testBase
-{
+//public class testBase
+//{
+//    public static WebDriver driver;
+//    @BeforeMethod
+//    @Parameters("URL")
+//    public void setupDriver(String URL)
+//    {
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.navigate().to(URL);
+//    }
+//
+//    @AfterMethod
+//    public void teardownDriver() {
+//        driver.quit();
+//    }
+//
+//}
+//BDD Test Base
+public class testBase extends AbstractTestNGCucumberTests {
     public static WebDriver driver;
+
     @BeforeMethod
     @Parameters("URL")
-    public void setupDriver(String URL)
-    {
+    public void setupDriver(String URL) {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -26,11 +46,9 @@ public class testBase
     }
 
     @AfterMethod
-    public void teardownDriver()
-    {
+    public void teardownDriver() {
         driver.quit();
     }
-
 }
 
 
