@@ -1,24 +1,21 @@
-package TestBase;
+package Challenge18Tests.tests;
 
-import com.beust.jcommander.Parameter;
-import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
-public class testBase
-{
+public class parallelTestBase {
 
-    public static WebDriver driver;
-
+    public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     @BeforeMethod
     @Parameters({"URL" , "browserName"})
@@ -30,13 +27,13 @@ public class testBase
             {
                 case "chrome" :
                     WebDriverManager.chromedriver().setup();
-                     driver = new ChromeDriver();break;
+                    driver.set(new ChromeDriver());break;
 
                 case "headlessChrome" :
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--headless");
-                    driver = new ChromeDriver(options);break;
+                    driver.set(new ChromeDriver());break;
 
 
                 default: System.out.println("please enter only from : { chrome , headlessChrome }");
@@ -45,43 +42,28 @@ public class testBase
         else if (browserName.equalsIgnoreCase("firefox"))
         {
             WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
+            driver.set(new FirefoxDriver());
 
         }
         else if (browserName.equalsIgnoreCase("edge"))
         {
             WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
+            driver.set(new EdgeDriver());
         }
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.navigate().to(URL);
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        getDriver().navigate().to(URL);
     }
 
     @AfterMethod
     public void teardownDriver() {
-        driver.quit();
+        getDriver().quit();
     }
 
 
+    public  WebDriver getDriver()
+    {
+        return driver.get();
+    }
+
 }
-//BDD Test Base
-//public class testBase extends AbstractTestNGCucumberTests {
-//    public static WebDriver driver;
-//
-//    @BeforeMethod
-//    @Parameters("URL")
-//    public void setupDriver(String URL) {
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.navigate().to(URL);
-//    }
-//
-//    @AfterMethod
-//    public void teardownDriver() {
-//        driver.quit();
-//    }
-//}
-
-

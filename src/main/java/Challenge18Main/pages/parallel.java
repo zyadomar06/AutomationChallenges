@@ -1,39 +1,24 @@
-package Challenge1Main.pages;
+package Challenge18Main.pages;
 
 import PageBase.pageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class loginPage extends pageBase
-{
-    public loginPage(WebDriver driver) {
+public class parallel extends parallelPageBase {
+    public parallel(WebDriver driver) {
         super(driver);
     }
-
-//    @FindBy (name = "username")
-//    WebElement userName;
-//    @FindBy (name = "password")
-//    WebElement passWord;
-//    @FindBy (xpath = "//button[@class = 'oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']")
-//    WebElement loginBtn;
 
     By userName = By.name("username");
     By passWord = By.name("password");
     By loginBtn = By.xpath("//button[@class = 'oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']");
 
-
     By Admin = By.linkText("Admin");
 
     WebElement element;
-
     WebElement element1;
-    public void loginAdmin ()
-    {
-         setTextElement(userName, "Admin");
-         setTextElement(passWord, "admin123");
-         clickOn(loginBtn, "click");
-    }
+
 
     public void login (String users , String passwords)
     {
@@ -44,13 +29,13 @@ public class loginPage extends pageBase
 
     public WebElement assertion ()
     {
-        element = findElement(loginBtn);
+        element = findElement(Admin);
         return element;
     }
 
     public WebElement assertion1 ()
     {
-        element1 = findElement(Admin);
+        element1 = findElement(loginBtn);
         return element1;
     }
 }

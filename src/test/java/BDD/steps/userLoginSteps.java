@@ -14,7 +14,7 @@ public class userLoginSteps extends testBase {
     @Given("the user in the login page")
     public void the_user_in_the_login_page() {
         page = new loginPage(driver);
-        //Assert.assertTrue(page.assertion().isDisplayed());
+        Assert.assertTrue(page.assertion().isDisplayed());
     }
 
     @When("I entered the user data and click on login button")
@@ -23,7 +23,8 @@ public class userLoginSteps extends testBase {
     }
 
     @Then("The login page displayed successfully")
-    public void the_login_page_displayed_successfully() {
-        //  Assert.assertTrue(page.assertion1().isDisplayed());
+    public void the_login_page_displayed_successfully() throws InterruptedException {
+          Thread.sleep(3000);
+          Assert.assertTrue(page.assertion1().isDisplayed());
     }
 }

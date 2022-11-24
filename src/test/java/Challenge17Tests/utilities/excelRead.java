@@ -1,4 +1,4 @@
-package Challenge15Tests.utilities;
+package Challenge17Tests.utilities;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class excelRead {
 
     String projectPath = System.getProperty("user.dir");
-    String excelPath = "/src/main/java/Challenge18Main/data/DataDrivenChallenge.xlsx";
+    String excelPath = "/src/main/java/Challenge15Main/data/DataDrivenChallenge.xlsx";
     String sheetName = "Sheet1";
 
     @DataProvider(name = "invloginData")
