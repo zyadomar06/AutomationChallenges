@@ -138,5 +138,51 @@ public class pageBase
         return js;
     }
 
+    // Select/Deselect By Index from List
+    protected static void actionToListByIndex(By elementBy , int index , String action)
+    {
+        waitVisibility(elementBy);
+        WebElement dropDown = driver.findElement(elementBy);
+        Select obj = new Select(dropDown);
+
+        switch (action)
+        {
+            case "select" : obj.selectByIndex(index);break;
+            case "deselect" : obj.deselectByIndex(index);break;
+            default: System.out.println("please enter only one from the Options : {select , deselect}");break;
+        }
+    }
+
+    // Select/Deselect By Value from List
+    protected static void actionToListByValue(By elementBy , String value , String action)
+    {
+        waitVisibility(elementBy);
+        WebElement dropDown = driver.findElement(elementBy);
+        Select obj = new Select(dropDown);
+
+        switch (action)
+        {
+            case "select" : obj.selectByValue(value);break;
+            case "deselect" : obj.deselectByValue(value);break;
+            default: System.out.println("please enter only one from the Options : {select , deselect}");break;
+        }
+    }
+
+
+    // Select/Deselect By Visible Text from List
+    protected static void actionToListByVisibleText(By elementBy , String visibleText , String action)
+    {
+        waitVisibility(elementBy);
+        WebElement dropDown = driver.findElement(elementBy);
+        Select obj = new Select(dropDown);
+
+        switch (action)
+        {
+            case "select" : obj.selectByVisibleText(visibleText);break;
+            case "deselect" : obj.deselectByVisibleText(visibleText);break;
+            default: System.out.println("please enter only one from the Options : {select , deselect}");break;
+        }
+    }
+
 }
 

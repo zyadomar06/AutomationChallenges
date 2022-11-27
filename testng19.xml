@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite Run">
+    <parameter name="browserName" value="chrome"></parameter>
+    <test preserve-order="true" name="Calendar Test1" >
+        <parameter name="URL" value="https://trytestingthis.netlify.app/"></parameter>
+        <classes>
+            <class name="Challenge19Tests.tests.calenderTest">
+              <methods>
+                <include name="calendarTest1"/>
+              </methods>
+            </class>
+        </classes>
+    </test>
+    <test preserve-order="true" name="Calendar Test2" >
+        <parameter name="URL" value="https://jqueryui.com/resources/demos/datepicker/dropdown-month-year.html"></parameter>
+        <classes>
+            <class name="Challenge19Tests.tests.calenderTest">
+                <methods>
+                    <include name="calendarTest2"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test preserve-order="true" name="Calendar Test3" >
+        <parameter name="URL" value="https://webdriveruniversity.com/Datepicker/index.html"></parameter>
+        <classes>
+            <class name="Challenge19Tests.tests.calenderTest">
+                <methods>
+                    <include name="calendarTest3"/>
+                    <include name="calendarTest4"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
