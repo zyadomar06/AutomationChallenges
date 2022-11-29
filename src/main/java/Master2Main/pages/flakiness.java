@@ -13,13 +13,19 @@ public class flakiness extends flakinessPageBase {
     By passWord = By.name("password");
     By loginBtn = By.xpath("//button[@class = 'oxd-button oxd-button--medium oxd-button--main orangehrm-login-button']");
 
-    By Admin = By.linkText("Admin");
+    By Admin = By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a");
 
     WebElement element;
     WebElement element1;
 
 
     public void login (String users , String passwords) {
+        setTextElement(userName, users);
+        setTextElement(passWord, passwords);
+       // clickOn(loginBtn, "click");
+    }
+
+    public void login1 (String users , String passwords) {
         setTextElement(userName, users);
         setTextElement(passWord, passwords);
         clickOn(loginBtn, "click");

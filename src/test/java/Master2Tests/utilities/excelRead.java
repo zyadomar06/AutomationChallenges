@@ -12,8 +12,8 @@ import java.io.IOException;
 public class excelRead {
 
     String projectPath = System.getProperty("user.dir");
-    String excelPathAdmin = "/src/main/java/Challenge18Main/data/AdminLogin.xlsx";
-    String excelPathInvalid = "/src/main/java/Challenge18Main/data/invalidLogin.xlsx";
+    String excelPathAdmin = "/src/main/java/Master2Main/data/AdminLogin.xlsx";
+    String excelPathInvalid = "/src/main/java/Master2Main/data/invalidLogin.xlsx";
     String sheetName = "Sheet1";
 
     @DataProvider(name = "AdminLogin")

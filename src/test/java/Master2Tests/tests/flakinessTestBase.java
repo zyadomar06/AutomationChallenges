@@ -19,8 +19,7 @@ public class flakinessTestBase {
 
     @BeforeMethod
     @Parameters({"URL" , "browserName"})
-    public void setupDriver(@Optional("chrome") String URL , String browserName)
-    {
+    public void setupDriver(@Optional("chrome") String URL , String browserName) {
         if (browserName.equalsIgnoreCase("chrome") || browserName.equalsIgnoreCase("headlessChrome"))
         {
             switch (browserName)
@@ -36,7 +35,7 @@ public class flakinessTestBase {
                     driver.set(new ChromeDriver());break;
 
 
-                default: System.out.println("please enter only from : { chrome , headlessChrome }");
+                default: System.out.println("please enter only from : { chrome , headlessChrome }");break;
             }
         }
         else if (browserName.equalsIgnoreCase("firefox"))
@@ -55,15 +54,16 @@ public class flakinessTestBase {
         getDriver().navigate().to(URL);
     }
 
+
+    public static WebDriver getDriver()
+    {
+        return driver.get();
+    }
+
     @AfterMethod
     public void teardownDriver() {
         getDriver().quit();
-    }
-
-
-    public  WebDriver getDriver()
-    {
-        return driver.get();
+        driver.remove();
     }
 
 }

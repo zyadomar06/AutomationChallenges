@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite Run" parallel="methods" thread-count="2" >
-    <test preserve-order="true" name="Flakiness Test1" thread-count="2" parallel="methods">
+<suite name="Suite Run">
+    <test preserve-order="true" name="Allure Test1" >
         <parameter name="URL" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"></parameter>
         <parameter name="browserName" value="chrome"></parameter>
         <classes>
-            <class name="Master2Tests.tests.flakinessTest"/>
+            <class name="MChallenge21Tests.tests.allureTest"/>
         </classes>
     </test>
 </suite>

@@ -6,7 +6,7 @@ import TestBase.testBase;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class dataDrivenTest extends testBase {
+public class allureTest extends testBase {
 
 
     dataDriven page;
