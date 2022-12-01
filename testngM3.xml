@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite Run" >
+    <test preserve-order="true" name="Master3 Test1" >
+        <parameter name="browserName" value="chrome"></parameter>
+        <parameter name="URL" value="https://www.saucedemo.com/"></parameter>
+        <classes>
+            <class name="Master3Tests.tests.secondHighestPriceTest">
+                <methods>
+                    <include name="master3Test1"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

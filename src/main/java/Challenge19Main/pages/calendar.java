@@ -32,10 +32,6 @@ public class calendar extends pageBase {
 
     By cccccc = By.xpath("/html/body/div[2]/div[2]/table/thead/tr/th[2]");
 
-//    public void calendarHandle () throws Exception
-//    {
-//
-//    }
 
     public void setCalendar1 ()
     {
@@ -69,7 +65,7 @@ public class calendar extends pageBase {
         String targetYear = splitter[2];
         String targetMonth = splitter[1];
         String targetDay = splitter[0];
-        int k = 0 ;
+
         boolean z = false;
         WebElement days = driver.findElement(day3);
 
@@ -95,7 +91,8 @@ public class calendar extends pageBase {
             }
         }
         System.out.println("Year is : " + findElement(cccccc).getText());
-        List<WebElement> months = findElement(month3).findElement(By.tagName("tbody")).findElement(By.tagName("tr")).findElement(By.tagName("td")).findElements(By.tagName("span"));
+        List<WebElement> months = findElement(month3).findElement(By.tagName("tbody"))
+                        .findElement(By.tagName("tr")).findElement(By.tagName("td")).findElements(By.tagName("span"));
 
         for (int i=0; i<months.size(); i++)
         {
